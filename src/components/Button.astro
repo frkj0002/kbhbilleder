@@ -1,5 +1,11 @@
 ---
+// Henter parametrene fra Astro.props
+const{variant=""}=Astro.props
+
+const variantClass = {
+    "primary": "bg-blue-400 text-neutral-100 rounded border-2 border-blue-400 hover:bg-blue-500 hover:border-blue-500 px-4 py-2 font-semibold"
+}
 ---
 <div>
-    <button class="border-2 border-black"><slot /></button>
+    <button class:list={[variantClass[variant]]}><slot /></button>
 </div>
