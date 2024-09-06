@@ -17,14 +17,17 @@ const images = await Astro.glob("/src/assets/images/galleri/*").then(files => {
 		<Button>Klik!</Button>
 		<p>Link til <Link href="https://www.kea.dk" target="_blank">En anden side</Link></p>
 	</article> -->
-	<section class="grid md:grid-cols-2 pt-20 gap-20">
-		<img src="src/assets/images/hero_billede.jpg" alt="billede af bogen">
-		<article class="grid content-center">
-			<h1 class="header1">Københavnerbilleder - en guide til hipster foto</h1>
-			<h2 class="header2 italic">af Sten Simons</h2>
-			<p>Københavnerbilleder er de danske streetfotografers bibel: Det er en fusion mellem et kunstværk og en lærebog. Bogen gennemgår alle væsentlige aspekter af streetfotografering fra grundlæggende teknik til kreative eksperimenter. Alt sammen krydret med masser af inspirerende fotos. God læselyst!</p>
+	<section class="grid md:grid-cols-2 pt-20 gap-20" id="kbhbilleder">
+		<img src="/imgs/hero_billede.jpg" alt="billede af bogen" class="w-full">
+		<article class="grid content-center gap-8">
 			<div>
-				<button class="grid content-start">Knap</button>
+				<h1 class="header1">Københavnerbilleder - en guide til hipster foto</h1>
+				<h2 class="header2 italic">af Sten Simons</h2>
+			</div>
+			<p>Københavnerbilleder er de danske streetfotografers bibel: Det er en fusion mellem et kunstværk og en lærebog. Bogen gennemgår alle væsentlige aspekter af streetfotografering fra grundlæggende teknik til kreative eksperimenter. Alt sammen krydret med masser af inspirerende fotos. God læselyst!</p>
+			<div class="pulsanimation">
+				<!-- <button class="grid content-start">Knap</button> -->
+				 <Link href="#formular" variant="primary">Køb bogen her!</Link>
 			</div>
 		</article>
 	</section>
@@ -42,17 +45,17 @@ const images = await Astro.glob("/src/assets/images/galleri/*").then(files => {
 	</section>
 	<section class="md:flex justify-center pt-20 gap-20">
 		<div>
-		<img src="src/assets/images/kobenhavnerbilleder_oppefra.jpg" alt="billede af bogen">
+		<img src="/imgs/kobenhavnerbilleder_oppefra.jpg" alt="billede af bogen">
 		</div>
 		<div>
-		<img src="src/assets/images/kobenhavnerbilleder_aaben_venstre.jpg" alt="billede af bogen">
+		<img src="/imgs/kobenhavnerbilleder_aaben_venstre.jpg" alt="billede af bogen">
 		</div>
 		<div>
-		<img src="src/assets/images/kobenhavnerbilleder-sten-simons.jpg" alt="billede af bogen">
+		<img src="/imgs/kobenhavnerbilleder-sten-simons.jpg" alt="billede af bogen">
 		</div>
 	</section>
 	<h2 class="pt-20 header2 text-center">Kapitlerne</h2>
-	<section class="md:flex justify-center gap-20">
+	<section class="md:flex justify-center gap-20" id="indhold">
 		<article class="grid gap-10">
 			<Kapitel kapitel="Kapitel 1 - Intro til street foto" tekst="Hvad er street foto? Det handler i bund og grund om at skyde byens liv og byens geometri (urban geometry). I dette kapitel får du en grundig intro til hvad street foto er og et overblik over nogen af de kendte street-fotografer. Alt krydret med en masse gode eksempler på street fotos."></Kapitel>
 			<Kapitel kapitel="Kapitel 2 - Om at skyde street" tekst="Vil du skyde street? Så er der ikke nogen vej udenom: Du skal ud på gaderne og prøve det! I dette kapitel får du en teknisk indføring i hvordan du bedst skyder street. Uanset om du er begynder eller professionel, er der mange gode tekniske tips og tricks til street-skyderiet."></Kapitel>
@@ -121,9 +124,9 @@ const images = await Astro.glob("/src/assets/images/galleri/*").then(files => {
 		}
 	</section>
 	<h3 class="header3 text-center">Forfatteren</h3>
-	<section class="md:flex grid justify-center max-w-3xl mx-auto pt-20 gap-10">
+	<section class="md:flex grid justify-center max-w-3xl mx-auto pt-20 gap-10" id="forfatteren">
 		<article>
-			<img src="src/assets/images/sten_simons.jpg" alt="billede af forfatteren">
+			<img src="/imgs/sten_simons.jpg" alt="billede af forfatteren">
 		</article>
 		<article class="content-start">
 			<p>Sten Simons har en lang foto-karriere bag sig. Det hele startede i 00’erne, da han gik rundt i Pisserenden for at fotografere ungdommens forfald. Det ledte til en række udstillinger, og blev senere til hans først fotobog “Ungdomsdruk - pinlige billeder fra nattelivet. <br>
@@ -131,7 +134,7 @@ const images = await Astro.glob("/src/assets/images/galleri/*").then(files => {
 		</article>
 	</section>
 	
-	<section class="max-w-3xl mx-auto pt-20">
+	<section class="max-w-3xl mx-auto pt-20" id="formular">
 		<h3 class="header3 text-center">Køb Københavnerbilleder nu!</h3>
 		<form class="grid justify-center gap-6">
 			<div>
@@ -169,9 +172,6 @@ const images = await Astro.glob("/src/assets/images/galleri/*").then(files => {
             <input type="checkbox" id="nyhedsbrev" value="Ja tak til nyhedsbreve og tilbud" class="rounded">
             <label for="nyhedsbrev"> Ja tak til nyhedsbreve og tilbud</label>
         </div>
-        <!-- <div>
-            <input type="submit" value="Til betaling">
-        </div> -->
         <div>
             <button type="submit">Fortsæt</button>
         </div>
@@ -191,5 +191,11 @@ const images = await Astro.glob("/src/assets/images/galleri/*").then(files => {
 	.header3{
 		font-size: 20px;
 		font-weight: bold;
+	}
+	.pulsanimation{
+		animation: pulse;
+		animation-iteration-count: infinite;
+		animation-duration: 2s;
+		transform-origin: left;
 	}
 </style>

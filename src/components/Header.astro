@@ -8,10 +8,10 @@ import Link from "./Link.astro"
 </div>
 <nav id="desktopmenu" class="hidden lg:block">
 <ul class="flex flex-row gap-4">
-<li class=""><Link href="#" >Københavnerbilleder</Link></li><!-- alternativt: lav et <a href="">Link</a>, hvis du ikke vil bruge Link.astro komponenten -->
-<li class=""><Link href="#" >Bogens indhold</Link></li>
-<li class=""><Link href="#" >Forfatteren</Link></li>
-<li class=""><Link href="#" >Køb nu</Link></li>
+<li class=""><Link href="#kbhbilleder" variant="textlink">Københavnerbilleder</Link></li><!-- alternativt: lav et <a href="">Link</a>, hvis du ikke vil bruge Link.astro komponenten -->
+<li class=""><Link href="#indhold" variant="textlink">Bogens indhold</Link></li>
+<li class=""><Link href="#forfatteren" variant="textlink">Forfatteren</Link></li>
+<li class=""><Link href="#formular" variant="textlink">Køb nu</Link></li>
 </ul>
 </nav>
 <button id="burgermenu" class="lg:hidden" x-on:click="showmenu = ! showmenu">
