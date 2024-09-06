@@ -5,6 +5,11 @@ import StjerneUdfyldt from "../components/StjerneUdfyldt.astro"
 import StjerneStroke from "../components/StjerneStroke.astro"
 import Button from '../components/Button.astro';
 import Link from '../components/Link.astro';
+
+// Definerer en konstant, hvor Astro.glob henter filer fra billedemappen, og returnerer en billedesti for hver fil (billede) i mappen
+const images = await Astro.glob("/src/assets/images/galleri/*").then(files => {
+  return files.map(file => file.default);
+});
 ---
 <MainLayout title="Titel">
 	<!-- <article>
@@ -15,15 +20,15 @@ import Link from '../components/Link.astro';
 	<section class="grid md:grid-cols-2 pt-20 gap-20">
 		<img src="src/assets/images/hero_billede.jpg" alt="billede af bogen">
 		<article class="grid content-center">
-			<h1>Københavnerbilleder - en guide til hipster foto</h1>
-			<h2>af Sten Simons</h2>
+			<h1 class="header1">Københavnerbilleder - en guide til hipster foto</h1>
+			<h2 class="header2 italic">af Sten Simons</h2>
 			<p>Københavnerbilleder er de danske streetfotografers bibel: Det er en fusion mellem et kunstværk og en lærebog. Bogen gennemgår alle væsentlige aspekter af streetfotografering fra grundlæggende teknik til kreative eksperimenter. Alt sammen krydret med masser af inspirerende fotos. God læselyst!</p>
 			<div>
 				<button class="grid content-start">Knap</button>
 			</div>
 		</article>
 	</section>
-	<section class="md:flex justify-center pt-20">
+	<section class="md:flex justify-center pt-20 gap-11">
 		<article class="text-right">
 			<p>Titel: Københavnerbilleder - en guide til hipster foto</p>
 			<p>Forfatter: Sten Simons</p>
@@ -46,7 +51,7 @@ import Link from '../components/Link.astro';
 		<img src="src/assets/images/kobenhavnerbilleder-sten-simons.jpg" alt="billede af bogen">
 		</div>
 	</section>
-	<h2 class="pt-20">Kapitlerne</h2>
+	<h2 class="pt-20 header2 text-center">Kapitlerne</h2>
 	<section class="md:flex justify-center gap-20">
 		<article class="grid gap-10">
 			<Kapitel kapitel="Kapitel 1 - Intro til street foto" tekst="Hvad er street foto? Det handler i bund og grund om at skyde byens liv og byens geometri (urban geometry). I dette kapitel får du en grundig intro til hvad street foto er og et overblik over nogen af de kendte street-fotografer. Alt krydret med en masse gode eksempler på street fotos."></Kapitel>
@@ -61,7 +66,7 @@ import Link from '../components/Link.astro';
 			<Kapitel kapitel="Kapitel 8 - Kom helt tæt på!" tekst="Street foto handler om at fotografere livet på gaden - men tør du at gå helt tæt på fremmede mennesker og knipse løs? Du kan lige så godt øve dig, for det er det der vil gøre dig til en bedre street-fotograf…"></Kapitel>
 		</article>
 	</section>
-	<h2 class="pt-20">Pressen siger</h2>
+	<h2 class="pt-20 header2 text-center">Pressen siger</h2>
 	<section class="grid md:grid-cols-3 gap-20">
 		<article>
 			<div class="flex justify-center pb-4">
@@ -99,62 +104,69 @@ import Link from '../components/Link.astro';
 			<p>- Volmer Hansen, Lukkertiden.dk</p>
 		</article>
 	</section>
-	<h3 class="pt-20">Galleri</h3>
+	<h3 class="pt-20 header3 text-center">Galleri</h3>
 	<section class="grid md:grid-cols-4 gap-4 mx-auto w-full max-w-6xl">
-		<img src="src/assets/images/baad.jpg" alt="billede fra bogen" class="w-72 h-72">
-		<img src="src/assets/images/bygning.jpeg" alt="billede fra bogen" class="w-72 h-72">
-		<img src="src/assets/images/kirke.jpg" alt="billede fra bogen" class="w-72 h-72">
-		<img src="src/assets/images/metro_udefra.jpg" alt="billede fra bogen" class="w-72 h-72">
-		<img src="src/assets/images/natteliv.jpg" alt="billede fra bogen" class="w-72 h-72">
-		<img src="src/assets/images/orestad_2.jpg" alt="billede fra bogen" class="w-72 h-72">
-		<img src="src/assets/images/skate.jpg" alt="billede fra bogen" class="w-72 h-72">
-		<img src="src/assets/images/metro.jpg" alt="billede fra bogen" class="w-72 h-72">
-		<img src="src/assets/images/stefan.jpg" alt="billede fra bogen" class="w-72 h-72">
-		<img src="src/assets/images/skatepark.jpg" alt="billede fra bogen" class="w-72 h-72">
-		<img src="src/assets/images/orestad.jpg" alt="billede fra bogen" class="w-72 h-72">
-		<img src="src/assets/images/vinter.jpg" alt="billede fra bogen" class="w-72 h-72">
+		<!-- Map-funktionen bruges til at hente og vise billedet fra hver sti i galleri-mappen -->
+		{
+			images.map(({ src }) => (
+				<div class="">
+					<img
+						src={src}
+						class="w-72 h-72"
+						alt=""
+						loading="lazy"
+					/>
+				</div>
+			))
+		}
 	</section>
-	<h3>Forfatteren</h3>
+	<h3 class="header3 text-center">Forfatteren</h3>
 	<section class="md:flex grid justify-center max-w-3xl mx-auto pt-20 gap-10">
 		<article>
 			<img src="src/assets/images/sten_simons.jpg" alt="billede af forfatteren">
 		</article>
 		<article class="content-start">
-			<p>Sten Simons har en lang foto-karriere bag sig. Det hele startede i 00’erne, da han gik rundt i Pisserenden for at fotografere ungdommens forfald. Det ledte til en række udstillinger, og blev senere til hans først fotobog “Ungdomsdruk - pinlige billeder fra nattelivet.
+			<p>Sten Simons har en lang foto-karriere bag sig. Det hele startede i 00’erne, da han gik rundt i Pisserenden for at fotografere ungdommens forfald. Det ledte til en række udstillinger, og blev senere til hans først fotobog “Ungdomsdruk - pinlige billeder fra nattelivet. <br>
 				”Derefter tog karrieren fart: Han blev fotojournalist og dokumenterede en masse dagligdagsstof fra Amager på dagbladet “Amagerkaneren.” Sideløbende begyndte han at undervise i foto, og har skrevet et utal af bøger, herunder bestsellerne Scener fra S-toget, Brun mad - en visuel odysse, og lærebogen Fotografering for evnesvage.</p>
 		</article>
 	</section>
-	<h3>Køb Københavnerbilleder nu!</h3>
+	
 	<section class="max-w-3xl mx-auto pt-20">
-		<form class="grid justify-center">
+		<h3 class="header3 text-center">Køb Københavnerbilleder nu!</h3>
+		<form class="grid justify-center gap-6">
 			<div>
             <label for="antal">Antal: </label>
-            <input type="number" id="antal" placeholder="1">
+            <input type="number" id="antal" placeholder="1" class="w-full rounded">
+        </div>
+        <div class="flex gap-6">
+			<div>
+				<input type="radio" id="postdk" value="PostDK">
+				<label for="postDK">PostDK</label>
+			</div>
+			<div>
+				<input type="radio" id="afhentselv" value="Afhent selv">
+				<label for="afhentselv">Afhent selv</label>
+			</div>
+            
         </div>
         <div>
-            <input type="radio" id="postdk" value="PostDK">
-            <label for="postDK">PostDK</label>
-            <input type="radio" id="afhentselv" value="Afhent selv">
-            <label for="afhentselv">Afhent selv</label>
+            <input type="text" id="navn" placeholder="Navn" class="w-full rounded">
         </div>
         <div>
-            <input type="text" id="navn" placeholder="Navn">
+            <input type="text" id="adresse" placeholder="Adresse" class="w-full rounded">
         </div>
         <div>
-            <input type="text" id="adresse" placeholder="Adresse">
+            <input type="email" id="email" placeholder="E-mail" class="w-full rounded">
         </div>
         <div>
-            <input type="email" id="email" placeholder="E-mail">
+            <input type="text" id="postnummer" placeholder="Postnr." class="rounded">
+            <input type="text" id="by" placeholder="By" class="rounded">
         </div>
         <div>
-            <input type="text" id="postnummer" placeholder="Postnr.">
-            <input type="text" id="by" placeholder="By">
+            <input type="tel" id="telefon" placeholder="Telefon" class="w-full rounded">
         </div>
         <div>
-            <input type="tel" id="telefon" placeholder="Telefon">
-        </div>
-        <div>
-            <input type="checkbox" id="nyhedsbrev" value="Ja tak til nyhedsbreve og tilbud">
+            <input type="checkbox" id="nyhedsbrev" value="Ja tak til nyhedsbreve og tilbud" class="rounded">
             <label for="nyhedsbrev"> Ja tak til nyhedsbreve og tilbud</label>
         </div>
         <!-- <div>
@@ -166,3 +178,18 @@ import Link from '../components/Link.astro';
 		</form>
 	</section>
 </MainLayout>
+
+<style>
+	.header1{
+		font-size: 36px;
+		font-weight: bold;
+	}
+	.header2{
+		font-size: 24px;
+		font-weight: bold;
+	}
+	.header3{
+		font-size: 20px;
+		font-weight: bold;
+	}
+</style>
