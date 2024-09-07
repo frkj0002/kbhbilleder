@@ -17,33 +17,32 @@ const images = await Astro.glob("/src/assets/images/galleri/*").then(files => {
 		<Button>Klik!</Button>
 		<p>Link til <Link href="https://www.kea.dk" target="_blank">En anden side</Link></p>
 	</article> -->
-	<section class="grid md:grid-cols-2 pt-20 gap-20" id="kbhbilleder">
+	<section class="grid md:grid-cols-2 pt-32 pb-10 gap-20" id="kbhbilleder">
 		<img src="/imgs/hero_billede.jpg" alt="billede af bogen" class="w-full">
-		<article class="grid content-center gap-8">
+		<article class="grid content-center gap-8 pr-12">
 			<div>
 				<h1 class="header1">Københavnerbilleder - en guide til hipster foto</h1>
 				<h2 class="header2 italic">af Sten Simons</h2>
 			</div>
 			<p>Københavnerbilleder er de danske streetfotografers bibel: Det er en fusion mellem et kunstværk og en lærebog. Bogen gennemgår alle væsentlige aspekter af streetfotografering fra grundlæggende teknik til kreative eksperimenter. Alt sammen krydret med masser af inspirerende fotos. God læselyst!</p>
 			<div class="pulsanimation">
-				<!-- <button class="grid content-start">Knap</button> -->
 				 <Link href="#formular" variant="primary">Køb bogen her!</Link>
 			</div>
 		</article>
 	</section>
-	<section class="md:flex justify-center pt-20 gap-11">
-		<article class="text-right">
-			<p>Titel: Københavnerbilleder - en guide til hipster foto</p>
-			<p>Forfatter: Sten Simons</p>
-			<p>Antal sider: 344</p>
+	<section class="md:flex md:gap-11 justify-center pt-20 grid gap-3 pb-10 px-12">
+		<article class="md:text-right grid gap-3">
+			<p><span class="font-bold">Titel:</span> Københavnerbilleder - en guide til hipster foto</p>
+			<p><span class="font-bold">Forfatter:</span> Sten Simons</p>
+			<p><span class="font-bold">Antal sider:</span> 344</p>
 		</article>
-		<article class="text-left">
-			<p>Forlag: Mellem Linjerne</p>
-			<p>ISBN: 987-6-987654-32-1</p>
-			<p>Pris: 399.-</p>
+		<article class="text-left grid gap-3">
+			<p><span class="font-bold">Forlag:</span> Mellem Linjerne</p>
+			<p><span class="font-bold">ISBN:</span> 987-6-987654-32-1</p>
+			<p><span class="font-bold">Pris:</span> 399.-</p>
 		</article>
 	</section>
-	<section class="md:flex justify-center pt-20 gap-20">
+	<section class="md:flex justify-center pt-20 gap-20 fadeinbilleder px-12 pb-10">
 		<div>
 		<img src="/imgs/kobenhavnerbilleder_oppefra.jpg" alt="billede af bogen">
 		</div>
@@ -54,24 +53,30 @@ const images = await Astro.glob("/src/assets/images/galleri/*").then(files => {
 		<img src="/imgs/kobenhavnerbilleder-sten-simons.jpg" alt="billede af bogen">
 		</div>
 	</section>
-	<h2 class="pt-20 header2 text-center">Kapitlerne</h2>
-	<section class="md:flex justify-center gap-20" id="indhold">
-		<article class="grid gap-10">
-			<Kapitel kapitel="Kapitel 1 - Intro til street foto" tekst="Hvad er street foto? Det handler i bund og grund om at skyde byens liv og byens geometri (urban geometry). I dette kapitel får du en grundig intro til hvad street foto er og et overblik over nogen af de kendte street-fotografer. Alt krydret med en masse gode eksempler på street fotos."></Kapitel>
-			<Kapitel kapitel="Kapitel 2 - Om at skyde street" tekst="Vil du skyde street? Så er der ikke nogen vej udenom: Du skal ud på gaderne og prøve det! I dette kapitel får du en teknisk indføring i hvordan du bedst skyder street. Uanset om du er begynder eller professionel, er der mange gode tekniske tips og tricks til street-skyderiet."></Kapitel>
-			<Kapitel kapitel="Kapitel 3 - Om at finde det rette motiv" tekst="Indimellem er man heldig, andre gange kommer man hjem helt uden gode motiver. Med et par tips og tricks til at finde de rette motiver, stiger chancen gevaldigt for at fange de gode motiver."></Kapitel>
-			<Kapitel kapitel="Kapitel 4 - Digital street foto" tekst="De fleste af os skyder oftest digitalt fordi det er billigere og nemmere. Og nogen teknikker og fremgangsmåder egner sig kun til digital street foto. I dette kapitel får du en række tips og tricks til digital street-foto."></Kapitel>
-		</article>
-		<article class="grid gap-10">
-			<Kapitel kapitel="Kapitel 5 - Analog street foto" tekst="Analog er sejt fordi det er mere “ægte,” dyrere og mere besværligt end digital. Det signalerer entusiasme. Nogle teknikker og fremgangsmåder egner sig bedst til analog street foto. I dette kapitel får du en række tips og tricks til analog street-foto."></Kapitel>
-			<Kapitel kapitel="Kapitel 6 - Om at skyde sort/hvid" tekst="Alle street-fotografer skyder sort/hvid nu og da. Nogen altid. Hvorfor? Hvad er der specielt ved sort/hvid fotografering, og hvad adskiller sort/hvid fra farvefotografering? Her får du en række tips og tricks til sort/hvid fotografering."></Kapitel>
-			<Kapitel kapitel="Kapitel 7 - Kreative teknikker" tekst="Dobbelteksponeringer, ICM (intentional camera moves), smadrede objektiver, gamle filmruller og alle mulige andre, spændende kreative teknikker kan løfte dine fotografier fra at være kedelige dokumentationer af hverdagen til at blive vilde kunststykker. Så dyk ned i dette kapitel om eksperimenterende teknikker!"></Kapitel>
-			<Kapitel kapitel="Kapitel 8 - Kom helt tæt på!" tekst="Street foto handler om at fotografere livet på gaden - men tør du at gå helt tæt på fremmede mennesker og knipse løs? Du kan lige så godt øve dig, for det er det der vil gøre dig til en bedre street-fotograf…"></Kapitel>
-		</article>
+	
+	<section id="indhold" class="px-12">
+		<h2 class="pt-20 header2 text-center pb-10">Kapitlerne</h2>
+		<div class="md:flex justify-center gap-20">
+			<article class="grid gap-10">
+				<Kapitel kapitel="Kapitel 1 - Intro til street foto" tekst="Hvad er street foto? Det handler i bund og grund om at skyde byens liv og byens geometri (urban geometry). I dette kapitel får du en grundig intro til hvad street foto er og et overblik over nogen af de kendte street-fotografer. Alt krydret med en masse gode eksempler på street fotos."></Kapitel>
+				<Kapitel kapitel="Kapitel 2 - Om at skyde street" tekst="Vil du skyde street? Så er der ikke nogen vej udenom: Du skal ud på gaderne og prøve det! I dette kapitel får du en teknisk indføring i hvordan du bedst skyder street. Uanset om du er begynder eller professionel, er der mange gode tekniske tips og tricks til street-skyderiet."></Kapitel>
+				<Kapitel kapitel="Kapitel 3 - Om at finde det rette motiv" tekst="Indimellem er man heldig, andre gange kommer man hjem helt uden gode motiver. Med et par tips og tricks til at finde de rette motiver, stiger chancen gevaldigt for at fange de gode motiver."></Kapitel>
+				<Kapitel kapitel="Kapitel 4 - Digital street foto" tekst="De fleste af os skyder oftest digitalt fordi det er billigere og nemmere. Og nogen teknikker og fremgangsmåder egner sig kun til digital street foto. I dette kapitel får du en række tips og tricks til digital street-foto."></Kapitel>
+			</article>
+			<article class="grid gap-10">
+				<Kapitel kapitel="Kapitel 5 - Analog street foto" tekst="Analog er sejt fordi det er mere “ægte,” dyrere og mere besværligt end digital. Det signalerer entusiasme. Nogle teknikker og fremgangsmåder egner sig bedst til analog street foto. I dette kapitel får du en række tips og tricks til analog street-foto."></Kapitel>
+				<Kapitel kapitel="Kapitel 6 - Om at skyde sort/hvid" tekst="Alle street-fotografer skyder sort/hvid nu og da. Nogen altid. Hvorfor? Hvad er der specielt ved sort/hvid fotografering, og hvad adskiller sort/hvid fra farvefotografering? Her får du en række tips og tricks til sort/hvid fotografering."></Kapitel>
+				<Kapitel kapitel="Kapitel 7 - Kreative teknikker" tekst="Dobbelteksponeringer, ICM (intentional camera moves), smadrede objektiver, gamle filmruller og alle mulige andre, spændende kreative teknikker kan løfte dine fotografier fra at være kedelige dokumentationer af hverdagen til at blive vilde kunststykker. Så dyk ned i dette kapitel om eksperimenterende teknikker!"></Kapitel>
+				<Kapitel kapitel="Kapitel 8 - Kom helt tæt på!" tekst="Street foto handler om at fotografere livet på gaden - men tør du at gå helt tæt på fremmede mennesker og knipse løs? Du kan lige så godt øve dig, for det er det der vil gøre dig til en bedre street-fotograf…"></Kapitel>
+			</article>
+		</div>
+		
 	</section>
-	<h2 class="pt-20 header2 text-center">Pressen siger</h2>
-	<section class="grid md:grid-cols-3 gap-20">
-		<article>
+	
+	<section class="fadeinanmeldelser px-12 pb-10 pt-20">
+		<h2 class="pt-20 header2 text-center pb-10">Pressen siger</h2>
+		<div class="grid md:grid-cols-3 gap-20">
+			<article>
 			<div class="flex justify-center pb-4">
 				<StjerneUdfyldt/>
 				<StjerneUdfyldt/>
@@ -106,9 +111,13 @@ const images = await Astro.glob("/src/assets/images/galleri/*").then(files => {
 			<p>Sten Simons kan det der - og han bliver bedre og bedre. Stens tredje fotobog er klart den bedste - her er han for alvor i sit rette element, meget bedre end “studiefotografering som begyndere.” Tillykke - godt arbejde.</p>
 			<p>- Volmer Hansen, Lukkertiden.dk</p>
 		</article>
+		</div>
+		
 	</section>
-	<h3 class="pt-20 header3 text-center">Galleri</h3>
-	<section class="grid md:grid-cols-4 gap-4 mx-auto w-full max-w-6xl">
+	
+	<section class="fadeingalleri pb-10">
+		<h2 class="pt-20 header2 text-center pb-10">Galleri</h2>
+		<div class="grid md:grid-cols-4 gap-4 mx-auto w-full max-w-6xl justify-center">
 		<!-- Map-funktionen bruges til at hente og vise billedet fra hver sti i galleri-mappen -->
 		{
 			images.map(({ src }) => (
@@ -122,20 +131,25 @@ const images = await Astro.glob("/src/assets/images/galleri/*").then(files => {
 				</div>
 			))
 		}
-	</section>
-	<h3 class="header3 text-center">Forfatteren</h3>
-	<section class="md:flex grid justify-center max-w-3xl mx-auto pt-20 gap-10" id="forfatteren">
-		<article>
-			<img src="/imgs/sten_simons.jpg" alt="billede af forfatteren">
-		</article>
-		<article class="content-start">
-			<p>Sten Simons har en lang foto-karriere bag sig. Det hele startede i 00’erne, da han gik rundt i Pisserenden for at fotografere ungdommens forfald. Det ledte til en række udstillinger, og blev senere til hans først fotobog “Ungdomsdruk - pinlige billeder fra nattelivet. <br>
-				”Derefter tog karrieren fart: Han blev fotojournalist og dokumenterede en masse dagligdagsstof fra Amager på dagbladet “Amagerkaneren.” Sideløbende begyndte han at undervise i foto, og har skrevet et utal af bøger, herunder bestsellerne Scener fra S-toget, Brun mad - en visuel odysse, og lærebogen Fotografering for evnesvage.</p>
-		</article>
+		</div>
 	</section>
 	
-	<section class="max-w-3xl mx-auto pt-20" id="formular">
-		<h3 class="header3 text-center">Køb Københavnerbilleder nu!</h3>
+	<section id="forfatteren">
+		<div class="md:flex grid justify-center max-w-6xl mx-auto gap-10 pb-10 pt-20 px-12">
+			
+			<article class="content-start ">
+				<h2 class="header2 pb-10">Forfatteren</h2>
+				<p>Sten Simons har en lang foto-karriere bag sig. Det hele startede i 00’erne, da han gik rundt i Pisserenden for at fotografere ungdommens forfald. Det ledte til en række udstillinger, og blev senere til hans først fotobog “Ungdomsdruk - pinlige billeder fra nattelivet. <br>
+				”Derefter tog karrieren fart: Han blev fotojournalist og dokumenterede en masse dagligdagsstof fra Amager på dagbladet “Amagerkaneren.” Sideløbende begyndte han at undervise i foto, og har skrevet et utal af bøger, herunder bestsellerne Scener fra S-toget, Brun mad - en visuel odysse, og lærebogen Fotografering for evnesvage.</p>
+			</article>
+			<article class="md:order-first">
+				<img src="/imgs/sten_simons_NY.jpg" alt="billede af forfatteren">
+			</article>
+		</div>
+	</section>
+	
+	<section class="max-w-3xl mx-auto pt-20 pb-10 px-12" id="formular">
+		<h2 class="header2 text-center pb-10">Køb Københavnerbilleder nu!</h2>
 		<form class="grid justify-center gap-6">
 			<div>
             <label for="antal">Antal: </label>
@@ -185,11 +199,7 @@ const images = await Astro.glob("/src/assets/images/galleri/*").then(files => {
 		font-weight: bold;
 	}
 	.header2{
-		font-size: 24px;
-		font-weight: bold;
-	}
-	.header3{
-		font-size: 20px;
+		font-size: 27px;
 		font-weight: bold;
 	}
 	.pulsanimation{
@@ -199,3 +209,44 @@ const images = await Astro.glob("/src/assets/images/galleri/*").then(files => {
 		transform-origin: left;
 	}
 </style>
+
+<script>
+	import { inView } from "motion";
+
+	const fadeinbilleder = document.querySelector(".fadeinbilleder");
+
+	inView(fadeinbilleder, () => {
+		fadeinbilleder.classList.add("animate__animated", "animate__fadeIn", "animate__delay-1s");
+	});
+
+
+	const indhold = document.querySelector("#indhold");
+
+	inView(indhold, () => {
+		indhold.classList.add("animate__animated", "animate__fadeIn", "animate__delay-1s");
+	});
+
+	const fadeinanmeldelser = document.querySelector(".fadeinanmeldelser");
+
+	inView(fadeinanmeldelser, () => {
+		fadeinanmeldelser.classList.add("animate__animated", "animate__fadeIn", "animate__delay-1s");
+	});
+
+	const fadeingalleri = document.querySelector(".fadeingalleri");
+
+	inView(fadeingalleri, () => {
+		fadeingalleri.classList.add("animate__animated", "animate__fadeIn", "animate__delay-1s");
+	});
+
+	const forfatteren = document.querySelector("#forfatteren");
+
+	inView(forfatteren, () => {
+		forfatteren.classList.add("animate__animated", "animate__fadeIn", "animate__delay-1s");
+	});
+
+	const formular = document.querySelector("#formular");
+
+	inView(formular, () => {
+		formular.classList.add("animate__animated", "animate__fadeIn", "animate__delay-1s");
+	});
+</script>
