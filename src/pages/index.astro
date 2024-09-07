@@ -19,7 +19,7 @@ const images = await Astro.glob("/src/assets/images/galleri/*").then(files => {
 	</article> -->
 	<section class="grid md:grid-cols-2 pt-32 pb-10 gap-20" id="kbhbilleder">
 		<img src="/imgs/hero_billede.jpg" alt="billede af bogen" class="w-full">
-		<article class="grid content-center gap-8 pr-12">
+		<article class="grid content-center gap-8 pr-12 px-12">
 			<div>
 				<h1 class="header1">Københavnerbilleder - en guide til hipster foto</h1>
 				<h2 class="header2 italic">af Sten Simons</h2>
@@ -42,7 +42,7 @@ const images = await Astro.glob("/src/assets/images/galleri/*").then(files => {
 			<p><span class="font-bold">Pris:</span> 399.-</p>
 		</article>
 	</section>
-	<section class="md:flex justify-center pt-20 gap-20 fadeinbilleder px-12 pb-10">
+	<section class="md:flex justify-center pt-20 grid gap-20 fadeinbilleder px-12 pb-10">
 		<div>
 		<img src="/imgs/kobenhavnerbilleder_oppefra.jpg" alt="billede af bogen">
 		</div>
@@ -138,7 +138,7 @@ const images = await Astro.glob("/src/assets/images/galleri/*").then(files => {
 		<div class="md:flex grid justify-center max-w-6xl mx-auto gap-10 pb-10 pt-20 px-12">
 			
 			<article class="content-start ">
-				<h2 class="header2 pb-10">Forfatteren</h2>
+				<h2 class="header2 pb-10 text-center md:text-start">Forfatteren</h2>
 				<p>Sten Simons har en lang foto-karriere bag sig. Det hele startede i 00’erne, da han gik rundt i Pisserenden for at fotografere ungdommens forfald. Det ledte til en række udstillinger, og blev senere til hans først fotobog “Ungdomsdruk - pinlige billeder fra nattelivet. <br>
 				”Derefter tog karrieren fart: Han blev fotojournalist og dokumenterede en masse dagligdagsstof fra Amager på dagbladet “Amagerkaneren.” Sideløbende begyndte han at undervise i foto, og har skrevet et utal af bøger, herunder bestsellerne Scener fra S-toget, Brun mad - en visuel odysse, og lærebogen Fotografering for evnesvage.</p>
 			</article>
